@@ -11,21 +11,24 @@ window.addEventListener('load', () => {
         "60b2d3"
     ];
 
+    const createEffect = () => {
+            anime({
+                targets: 'visual',
+                left: '240px',
+                backgroundColor: '#FFF',
+                borderRadius: ['0%', '50%'],
+                easing: 'easeInOutQuad'
+            })
+        }
+
     pads.forEach((pad, index) => {
         pad.addEventListener('click', function(){
             sounds[index].currentTime = 0;
             sounds[index].play();
-        createEffect(index);
+            createEffect();
         });  
     });
 
-    const createEffect = (index) => {
-        const effect = document.createElement("div");
-        visual.appendChild(effect);
-        effect.style.backgroundColor = colors[index]
-        effect.style.animation = "jump 1s ease";
-        effect.addEventListener('animationend', function (){
-            visual.removeChild(this);
-        })
-    }
-});
+    
+}); 
+

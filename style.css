@@ -3,9 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+/* PALETA DE COLORES https://color.adobe.com/search?q=dark */
 body{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Anonymous Pro', monospace;
+    background-color: #262621;
+    color:#BDBFAE;
 }
 
 .app {
@@ -17,65 +19,44 @@ body{
 }
 
 header h1{
-    margin: 50px 0px 30px 0px;
+    margin: 80px 0px 30px 0px;
     text-align: center;
-    font-size: 40px;
+    font-size: 60px;
+    letter-spacing: 0.5em;
 }
 header p{
     font-size: 20px;
+    letter-spacing: 0.2em;
 }
 
 .pads{
-    background: lightblue;
     width: 100%;
     display: flex;
+    align-content: center;
+    justify-content: center;
+       
 }
 
 .pads > div {
     height: 100px;
     width: 100px;
-    flex: 1;
+    flex-grow: 1;
+    margin: 50px;
+    
 }
 
-.pad1 {
-    background: #60d394;
-}
-.pad2 {
-    background: #d36060;
-}
-.pad3 {
-    background: #c060d3;
-}
-.pad4 {
-    background: #d3d160;
-}
-.pad5 {
-    background: #6860d3;
-}
-.pad1 {
-    background: #60b2d3;
+.pad1, .pad2, .pad3, .pad4, .pad5, .pad6 {
+    background: #262621;
+    border-style: solid;
+    border-width: 6px;
 }
 
-@keyframes jump{
-    0%{
-        bottom: 0%;
-        left: 20%;
-    }
-    50%{
-        bottom: 50%;
-        left: 50%;
-    }
-    100%{
-        bottom: 0%;
-        left: 80%;
-    }
-}
 
-.visual > div{
+.visual {
     position: absolute;
     height: 50px;
     width: 50px;
-    border-radius: 50%;
-    bottom: 0%;
+    background-color: tomato;
+    bottom: 50%;
     z-index: -1;
 }
