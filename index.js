@@ -5,30 +5,36 @@ window.addEventListener('load', () => {
     const colors = [
         "#60d394",
         "#d36060",
-        "c060d3",
-        "d3d160",
-        "6860d3",
-        "60b2d3"
+        "#c060d3",
+        "#d3d160",
+        "#6860d3",
+        "#60b2d3"
     ];
-
-    const createEffect = () => {
-            anime({
-                targets: 'visual',
-                left: '240px',
-                backgroundColor: '#FFF',
-                borderRadius: ['0%', '50%'],
-                easing: 'easeInOutQuad'
-            })
-        }
 
     pads.forEach((pad, index) => {
         pad.addEventListener('click', function(){
-            sounds[index].currentTime = 0;
-            sounds[index].play();
-            createEffect();
+            if(sounds[index].paused){
+                sounds[index].currentTime = 0;
+                sounds[index].play();
+                pad.style.backgroundColor = "tomato";
+                createBubbles(index);
+              } else {
+                sounds[index].pause();
+                pad.style.backgroundColor = "#262621";
+              }
+           
         });  
     });
-
+     
+    const createBubbles = (index) => {
+        const bubble = document.createElement('div');
+        visual.appendChild(bubble);
+        bubble.style.backgroundColor = colors[index];
+        bubble.style.animation = 'jump 1s ease';
+        bubble.addEventListener('animationend', function(){
+            visual.removeChild(this);
+        });
+    };
     
 }); 
 

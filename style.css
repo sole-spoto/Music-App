@@ -52,11 +52,76 @@ header p{
 }
 
 
-.visual {
+@keyframes jump {
+    0% {
+        bottom: 0%;
+        left: 20%;
+    }
+    50% {
+        bottom: 50%;
+        left: 50%;
+    }
+    100% {
+        bottom: 0%;
+        left: 80%;
+    }
+}
+
+.visual > div {
     position: absolute;
     height: 50px;
     width: 50px;
-    background-color: tomato;
-    bottom: 50%;
+    border-radius: 50%;
+    bottom: 0%;
+    left: 20%;
     z-index: -1;
 }
+
+/* Responsive */
+@media only screen and (max-width: 800px) {
+    
+    header h1 {
+        margin: 40px 0px 30px 0px;
+        padding-inline: 40px;
+        font-size: 25px;
+    }
+    header p {
+        padding-inline: 40px;
+        font-size: 15px;
+    }
+    .pads > div {
+        height: 50px;
+        width: 50px;
+        margin: 50px 30px;
+    }
+    .visual > div {
+        height: 30px;
+        width: 30px;
+    }
+}
+@media only screen and (max-width: 600px) {    
+    .pads{
+        flex-direction: column;
+        padding-bottom: 40px;
+        padding-top: 40px;
+    }
+    .pads > div {
+        height: 50px;
+        width: 50px;
+        margin: 5px 30px;
+    }
+    @keyframes jump {
+            0% {
+            left: 0%;
+            bottom: 50%;
+        }
+            50% {
+            left: 70%;
+            bottom: 25%;
+        }
+            100% {
+            left: 0%;
+            bottom: 0%;
+        }
+    }
+  }
